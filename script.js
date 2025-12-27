@@ -13,3 +13,6 @@ function calculate() {
   document.getElementById("total").innerText =
     "Total: ₹" + total.toLocaleString("en-IN");
 }
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("show");
+}
