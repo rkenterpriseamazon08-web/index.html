@@ -323,7 +323,10 @@ footer {
 
 /* Logo image size control */
 .logo img {
-  height: 42px;              /* ✅ PERFECT HEADER SIZE */
-  width: auto;
-  object-fit: contain;
+  height: 52px;              /* 42 × 1.25 ≈ 52 */
+  width: 52px;               /* force square for circle */
+  border-radius: 50%;        /* makes it round */
+  object-fit: cover;         /* fills circle nicely */
+  border: 2px solid #f5c542; /* optional premium gold border */
 }
+
