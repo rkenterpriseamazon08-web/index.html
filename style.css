@@ -84,3 +84,27 @@ footer {
   text-align: center;
   background: #000;
 }
+/* FIX HERO TEXT & BUTTON OVERLAP */
+.hero-content {
+  text-align: center;
+  max-width: 900px;
+  padding: 40px;
+  margin: auto;
+}
+
+.hero-content h1 {
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
