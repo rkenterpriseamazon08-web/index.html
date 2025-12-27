@@ -15,13 +15,14 @@ body { background: #000; color: #f5c542; }
 .logo { font-size: 22px; font-weight: bold; }
 
 .hero {
-  height: 90vh;
-  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("assets/hero.jpg");
-  background-size: cover;
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("assets/hero.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  padding-top: 80px; /* pushes content below header */
 }
 
 .hero h1 span { color: #ffd700; }
@@ -86,25 +87,31 @@ footer {
 }
 /* FIX HERO TEXT & BUTTON OVERLAP */
 .hero-content {
-  text-align: center;
   max-width: 900px;
-  padding: 40px;
-  margin: auto;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-content h1 {
+  font-size: 42px;
   margin-bottom: 20px;
-  line-height: 1.2;
 }
 
 .hero-content p {
-  margin-bottom: 30px;
   font-size: 18px;
+  margin-bottom: 30px;
+  color: #f5c542;
 }
 
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 25px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
