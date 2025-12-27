@@ -2,106 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>R.K. Enterprise | Container Living and Working, Redefined</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R.K. Enterprise | Custom Container Houses</title>
-  <style>
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#000; color:#facc15; }
-    header { background:#000; border-bottom:2px solid #facc15; padding:20px 40px; }
-    header h1 { margin:0; color:#facc15; }
-    section { padding:40px; max-width:1200px; margin:auto; }
-    .card { background:#111; border:1px solid #facc15; border-radius:8px; padding:25px; margin-bottom:30px; }
-    h2 { color:#facc15; }
-    label { display:block; margin-top:12px; }
-    select, input { width:100%; padding:10px; margin-top:6px; background:#000; color:#facc15; border:1px solid #facc15; border-radius:4px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-    .btn { background:#facc15; color:#000; padding:14px 24px; border:none; border-radius:4px; font-weight:bold; cursor:pointer; margin-top:20px; }
-    footer { text-align:center; padding:20px; border-top:1px solid #facc15; }
-    .price-box { font-size:22px; font-weight:bold; margin-top:20px; }
-  </style>
+  <meta name="description" content="Premium container houses, porta cabins and farmhouse containers by R.K. Enterprise.">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>R.K. Enterprise – Custom Container House Builder</h1>
+<header class="header">
+  <div class="logo">R.K. Enterprise</div>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#calculator">Price Calculator</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<section class="card">
-  <h2>Sign In</h2>
-  <div class="grid">
-    <input type="email" placeholder="Email Address" />
-    <input type="password" placeholder="Password" />
+<section class="hero">
+  <div class="hero-content">
+    <h1>CONTAINER LIVING AND WORKING,<br><span>REDEFINED</span></h1>
+    <p>Premium Container Houses, Porta Cabins & Custom Container Solutions</p>
+    <div class="hero-buttons">
+      <a href="#calculator" class="btn-primary">Get Price</a>
+      <a href="https://wa.me/916291465527" class="btn-secondary">WhatsApp</a>
+    </div>
   </div>
 </section>
 
-<section class="card">
-  <h2>Customize Your Container House</h2>
+<section id="products" class="section">
+  <h2>Our Solutions</h2>
+  <div class="grid">
+    <div class="card">Container Houses</div>
+    <div class="card">MS Porta Cabins</div>
+    <div class="card">Portable Offices</div>
+    <div class="card">Site Office Cabins</div>
+    <div class="card">Security Cabins</div>
+    <div class="card">Farmhouse Container Homes</div>
+    <div class="card">Custom Container Solutions</div>
+  </div>
+</section>
 
-  <label>Container Size</label>
-  <select id="size">
-    <option value="200">20 x 10 ft (200 sq.ft)</option>
-    <option value="300">30 x 10 ft (300 sq.ft)</option>
-    <option value="400">40 x 10 ft (400 sq.ft)</option>
-  </select>
+<section id="calculator" class="section dark">
+  <h2>Instant Price Calculator</h2>
 
-  <label>Flooring Type</label>
-  <select id="floor">
-    <option>Floor Tiles</option>
-    <option>Floor Matting</option>
-    <option>Metal Plate Floor</option>
-    <option>Wooden Flooring</option>
-  </select>
+  <div class="calculator">
+    <label>Container Size</label>
+    <select id="size">
+      <option value="200">20 × 10 (200 sq.ft)</option>
+      <option value="300">30 × 10 (300 sq.ft)</option>
+      <option value="400">40 × 10 (400 sq.ft)</option>
+    </select>
 
-  <label>Interior Wall Panels</label>
-  <select id="wall">
-    <option>ACP Board</option>
-    <option>MDF Board</option>
-    <option>Louvers</option>
-  </select>
+    <label>Rooms</label>
+    <select id="rooms">
+      <option value="1">1 Room</option>
+      <option value="2">2 Rooms</option>
+    </select>
 
-  <label>Number of Doors</label>
-  <input type="number" id="doors" value="1" />
+    <label>Kitchen</label>
+    <select id="kitchen">
+      <option value="0">No</option>
+      <option value="60000">Yes</option>
+    </select>
 
-  <label>Number of Windows</label>
-  <input type="number" id="windows" value="2" />
+    <label>Toilet</label>
+    <select id="toilet">
+      <option value="0">No</option>
+      <option value="50000">Yes</option>
+    </select>
 
-  <label>Number of Rooms</label>
-  <input type="number" id="rooms" value="1" />
+    <label>Bed Options</label>
+    <select id="bed">
+      <option value="0">None</option>
+      <option value="8000">Single Bed</option>
+      <option value="16000">Double Bed</option>
+      <option value="15000">Bunk Bed</option>
+    </select>
 
-  <label>Need Toilet?</label>
-  <select id="toilet">
-    <option value="0">No</option>
-    <option value="50000">Yes</option>
-  </select>
+    <button onclick="calculate()">Calculate Price</button>
 
-  <label>Need Kitchen?</label>
-  <select id="kitchen">
-    <option value="0">No</option>
-    <option value="70000">Yes</option>
-  </select>
+    <h3 id="total">Total: ₹0</h3>
+  </div>
+</section>
 
-  <label>Number of Beds</label>
-  <input type="number" id="beds" value="0" />
+<section id="process" class="section">
+  <h2>Our Process</h2>
+  <div class="grid">
+    <div class="card">Consultation</div>
+    <div class="card">Design & Planning</div>
+    <div class="card">Manufacturing</div>
+    <div class="card">Delivery & Installation</div>
+  </div>
+</section>
 
-  <button class="btn" onclick="calculatePrice()">Calculate Price</button>
-
-  <div class="price-box" id="price">Estimated Price: ₹0</div>
+<section id="contact" class="section dark">
+  <h2>Contact Us</h2>
+  <p>Kolkata, West Bengal | Service within 1000 KM</p>
+  <p>📞 +91-6291465527 / +91-9831220899 / +91-9007414504</p>
+  <p>✉️ rkenterpriseamazon08@gmail.com</p>
 </section>
 
 <footer>
-  <p>Base Price Rate: ₹1300 per sq.ft | © 2025 R.K. Enterprise</p>
+  © 2024 R.K. Enterprise. All Rights Reserved.
 </footer>
 
-<script>
-function calculatePrice() {
-  const size = parseInt(document.getElementById('size').value);
-  const toilet = parseInt(document.getElementById('toilet').value);
-  const kitchen = parseInt(document.getElementById('kitchen').value);
-  const beds = parseInt(document.getElementById('beds').value) * 15000;
-  const basePrice = size * 1300;
-  const total = basePrice + toilet + kitchen + beds;
-  document.getElementById('price').innerText = 'Estimated Price: ₹' + total.toLocaleString('en-IN');
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
