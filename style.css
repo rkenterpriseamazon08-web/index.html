@@ -289,3 +289,15 @@ footer {
 .gallery-img:hover {
   transform: scale(1.05);
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f5c542;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 40px;
+}
