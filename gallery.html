@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Gallery | R.K. Enterprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">R.K. Enterprise</a>
+</header>
+
+<section class="products">
+  <h2 id="gallery-title">Gallery</h2>
+  <div id="gallery-grid" class="product-grid"></div>
+</section>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+
+  const titles = {
+    "container-houses": "Container Houses",
+    "porta-cabins": "MS Porta Cabins",
+    "portable-offices": "Portable Offices",
+    "security-cabins": "Security Cabins",
+    "farmhouse": "Farmhouse Container Homes",
+    "custom": "Custom Container Solutions"
+  };
+
+  document.getElementById("gallery-title").innerText = titles[type] || "Gallery";
+
+  const grid = document.getElementById("gallery-grid");
+
+  for (let i = 1; i <= 12; i++) {
+    const img = document.createElement("img");
+    img.src = `assets/products/${type}/${i}.jpg`;
+    img.style.width = "100%";
+    img.style.border = "2px solid #f5c542";
+    img.style.marginBottom = "20px";
+    grid.appendChild(img);
+  }
+</script>
+
+</body>
+</html>
