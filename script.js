@@ -6,7 +6,7 @@ function calculate() {
   const bed = parseInt(document.getElementById("bed").value);
 
   const base = size * 1300;
-  const roomCost = rooms > 1 ? 30000 : 0;
+  const roomCost = rooms > 1 ? 8000 : 0;
 
   const total = base + roomCost + kitchen + toilet + bed;
 
