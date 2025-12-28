@@ -136,9 +136,14 @@
     <label>Number of Beds Required</label>
     <input type="number" id="bedCount" min="0" value="0">
 
-    <button onclick="calculate()">Calculate Price</button>
+   <button onclick="calculate()" class="calc-btn">
+  Calculate Price
+</button>
 
-    <div id="total"></div>
+<div id="total" class="total-box">
+  Total: ₹0
+</div>
+
 
   </div>
 </section>
@@ -174,6 +179,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
