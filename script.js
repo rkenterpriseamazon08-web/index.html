@@ -1,4 +1,3 @@
-// ELEMENT REFERENCES (TOP OF FILE)
 const containerSize = document.getElementById("containerSize");
 const bedrooms = document.getElementById("bedrooms");
 
@@ -12,7 +11,6 @@ function calculate() {
   const bedType = document.getElementById("bedType").value;
   const bedCount = parseInt(document.getElementById("bedCount").value) || 0;
 
-  // BASE AREA
   const sqft = {
     "20x10": 200,
     "30x10": 300,
@@ -21,13 +19,10 @@ function calculate() {
 
   let total = sqft[size] * 1300;
 
-  // EXTRA BEDROOM COST
   if (rooms === 2) total += 8000;
 
-  // KITCHEN + TOILET
   total += kitchen + toilet;
 
-  // FLOORING COST
   const flooringCost = {
     "20x10": { tiles: 12000, wood: 18000 },
     "30x10": { tiles: 18000, wood: 25000 },
@@ -37,7 +32,6 @@ function calculate() {
   if (flooring === "tiles") total += flooringCost[size].tiles;
   if (flooring === "wood") total += flooringCost[size].wood;
 
-  // BED PRICING
   let bedPrice = 0;
   if (bedType === "single") bedPrice = 8000;
   if (bedType === "double") bedPrice = 16000;
@@ -49,11 +43,8 @@ function calculate() {
     "Total: ₹" + total.toLocaleString("en-IN");
 }
 
-// BEDROOM RULE LOGIC
 function updateBedroomDropdown() {
-  const selectedSize = containerSize.value;
-
-  if (selectedSize === "20x10") {
+  if (containerSize.value === "20x10") {
     bedrooms.value = "1";
     bedrooms.disabled = true;
   } else {
@@ -61,6 +52,5 @@ function updateBedroomDropdown() {
   }
 }
 
-// EVENT BINDING
 containerSize.addEventListener("change", updateBedroomDropdown);
 updateBedroomDropdown();
