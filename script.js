@@ -1,5 +1,8 @@
+const containerSize = document.getElementById("containerSize");
+const bedrooms = document.getElementById("bedrooms");
+
 function calculate() {
-  const size = document.getElementById("size").value;
+  const size = document.getElementById("containerSize").value;
   const rooms = parseInt(document.getElementById("rooms").value);
   const kitchen = parseInt(document.getElementById("kitchen").value);
   const toilet = parseInt(document.getElementById("toilet").value);
@@ -42,17 +45,13 @@ function updateBedroomDropdown() {
   const selectedSize = containerSize.value;
 
   if (selectedSize === "20x10") {
-    // Force 1 bedroom and lock it
     bedrooms.value = "1";
     bedrooms.disabled = true;
   } else {
-    // Enable dropdown for larger sizes
     bedrooms.disabled = false;
   }
 }
 
-// Run on size change
 containerSize.addEventListener("change", updateBedroomDropdown);
-
-// Run once on page load
 updateBedroomDropdown();
+
