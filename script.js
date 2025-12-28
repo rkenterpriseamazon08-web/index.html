@@ -39,20 +39,20 @@ function calculate() {
 }
 
 function updateBedroomDropdown() {
-  const size = size.value;
+  const selectedSize = containerSize.value;
 
-  if (size === "20X10") {
-    // Force 1 bedroom and disable dropdown
+  if (selectedSize === "20x10") {
+    // Force 1 bedroom and lock it
     bedrooms.value = "1";
     bedrooms.disabled = true;
   } else {
-    // Enable dropdown for 30x10 and 40x10
+    // Enable dropdown for larger sizes
     bedrooms.disabled = false;
   }
 }
 
-// Run when container size changes
-size.addEventListener("change", updateBedroomDropdown);
+// Run on size change
+containerSize.addEventListener("change", updateBedroomDropdown);
 
 // Run once on page load
 updateBedroomDropdown();
