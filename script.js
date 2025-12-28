@@ -56,3 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
   updateBedroomDropdown();
   containerSize.addEventListener("change", updateBedroomDropdown);
 });
+/* ===== MOBILE MENU AUTO-CLOSE FIX ===== */
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+const navLinks = navMenu.querySelectorAll("a");
+
+// Toggle menu on hamburger click
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+});
+
+// Close menu when any link is clicked
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show");
+  });
+});
