@@ -381,3 +381,14 @@ footer {
     display: flex;
   }
 }
+
+.disclaimer {
+  color: #f5c542;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.disclaimer.bold {
+  font-weight: 700;
+  font-size: 15px;
+}
