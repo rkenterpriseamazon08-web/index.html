@@ -105,7 +105,7 @@ select,.calculator button,.full-input{
   box-sizing:border-box
 }
 .full-input{border-radius:4px;border:1px solid #ccc}
-.calc-btn{margin-top:35px;cursor:pointer}
+.calc-btn{margin-top:30px;cursor:pointer}
 #calculator h2{text-align:center;margin-bottom:30px}
 .total-box{
   margin-top:20px;font-weight:bold;font-size:18px;
