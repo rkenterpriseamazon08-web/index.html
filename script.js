@@ -39,7 +39,7 @@ function calculate() {
 }
 
 function updateBedroomDropdown() {
-  const size = containerSize.value;
+  const size = size.value;
 
   if (size === "20X10") {
     // Force 1 bedroom and disable dropdown
@@ -52,7 +52,7 @@ function updateBedroomDropdown() {
 }
 
 // Run when container size changes
-containerSize.addEventListener("change", updateBedroomDropdown);
+size.addEventListener("change", updateBedroomDropdown);
 
 // Run once on page load
 updateBedroomDropdown();
