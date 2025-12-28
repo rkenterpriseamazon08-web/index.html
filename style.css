@@ -415,3 +415,24 @@ footer {
   }
 }
 
+#calculator h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.calc-btn {
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.total-box {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffd54f;
+  border: 2px solid #ffd54f;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  background: rgba(255, 213, 79, 0.08);
+}
