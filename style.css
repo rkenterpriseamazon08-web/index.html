@@ -382,13 +382,36 @@ footer {
   }
 }
 
-.disclaimer {
-  color: #f5c542;
-  font-size: 14px;
-  margin-top: 10px;
+.price-disclaimer {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #f5c542; /* Golden yellow */
+  background: rgba(245, 197, 66, 0.15);
+  border-radius: 8px;
+  animation: blinkGlow 1.5s infinite;
 }
 
-.disclaimer.bold {
-  font-weight: 700;
-  font-size: 15px;
+.price-disclaimer p {
+  margin: 5px 0;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.3px;
 }
+
+/* Smooth blinking effect */
+@keyframes blinkGlow {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(245, 197, 66, 0.6);
+  }
+  50% {
+    opacity: 0.4;
+    box-shadow: 0 0 15px rgba(245, 197, 66, 1);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 5px rgba(245, 197, 66, 0.6);
+  }
+}
+
