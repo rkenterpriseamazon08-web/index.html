@@ -3,7 +3,7 @@ const bedrooms = document.getElementById("bedrooms");
 
 function calculate() {
   const size = document.getElementById("containerSize").value;
-  const rooms = parseInt(document.getElementById("rooms").value);
+  const rooms = parseInt(document.getElementById("bedrooms").value);
   const kitchen = parseInt(document.getElementById("kitchen").value);
   const toilet = parseInt(document.getElementById("toilet").value);
   const flooring = document.getElementById("flooring").value;
@@ -13,13 +13,13 @@ function calculate() {
   const sqft = { "20x10": 200, "30x10": 300, "40x10": 400 };
   let total = sqft[size] * 1300;
 
-  // Extra bedroom
+  // Extra bedroom cost
   if (rooms === 2) total += 8000;
 
-  // Kitchen & toilet
+  // Kitchen & Toilet
   total += kitchen + toilet;
 
-  // Flooring
+  // Flooring cost
   const flooringCost = {
     "20x10": { tiles: 12000, wood: 18000 },
     "30x10": { tiles: 18000, wood: 25000 },
@@ -40,6 +40,7 @@ function calculate() {
   document.getElementById("total").innerText =
     "Total: ₹" + total.toLocaleString("en-IN");
 }
+
 
 function updateBedroomDropdown() {
   const selectedSize = containerSize.value;
