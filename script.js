@@ -11,6 +11,7 @@ function calculate() {
   const bedType = document.getElementById("bedType").value;
   const bedCount = parseInt(document.getElementById("bedCount").value) || 0;
 
+  // Sq ft mapping
   const sqft = {
     "20x10": 200,
     "30x10": 300,
@@ -19,10 +20,13 @@ function calculate() {
 
   let total = sqft[size] * 1300;
 
+  // Extra bedroom
   if (rooms === 2) total += 8000;
 
+  // Kitchen + Toilet
   total += kitchen + toilet;
 
+  // Flooring cost
   const flooringCost = {
     "20x10": { tiles: 12000, wood: 18000 },
     "30x10": { tiles: 18000, wood: 25000 },
@@ -32,6 +36,7 @@ function calculate() {
   if (flooring === "tiles") total += flooringCost[size].tiles;
   if (flooring === "wood") total += flooringCost[size].wood;
 
+  // Bed pricing
   let bedPrice = 0;
   if (bedType === "single") bedPrice = 8000;
   if (bedType === "double") bedPrice = 16000;
@@ -43,12 +48,18 @@ function calculate() {
     "Total: ₹" + total.toLocaleString("en-IN");
 }
 
+// 🔒 Bedroom restriction logic
 function updateBedroomDropdown() {
-  if (containerSize.value === "20x10") {
+  const selectedSize = containerSize.value;
+  const twoBedOption = bedrooms.querySelector('option[value="2"]');
+
+  if (selectedSize === "20x10") {
     bedrooms.value = "1";
     bedrooms.disabled = true;
+    twoBedOption.disabled = true;
   } else {
     bedrooms.disabled = false;
+    twoBedOption.disabled = false;
   }
 }
 
