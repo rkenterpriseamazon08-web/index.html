@@ -2,42 +2,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const containerSize = document.getElementById("containerSize");
   const bedrooms = document.getElementById("bedrooms");
+function calculate(){
+  document.getElementById("priceModal").style.display = "block";
+}
 
-  function calculate() {
-    const size = containerSize.value;
-    const rooms = parseInt(bedrooms.value);
-    const kitchen = parseInt(document.getElementById("kitchen").value);
-    const toilet = parseInt(document.getElementById("toilet").value);
-    const flooring = document.getElementById("flooring").value;
-    const bedType = document.getElementById("bedType").value;
-    const bedCount = parseInt(document.getElementById("bedCount").value) || 0;
+function calculatePriceAfterForm() {
+  const size = containerSize.value;
+  const rooms = parseInt(bedrooms.value);
+  const kitchen = parseInt(document.getElementById("kitchen").value);
+  const toilet = parseInt(document.getElementById("toilet").value);
+  const flooring = document.getElementById("flooring").value;
+  const bedType = document.getElementById("bedType").value;
+  const bedCount = parseInt(document.getElementById("bedCount").value) || 0;
 
-    const sqft = { "20x10": 200, "30x10": 300, "40x10": 400 };
-    let total = sqft[size] * 1300;
+  const sqft = { "20x10": 200, "30x10": 300, "40x10": 400 };
+  let total = sqft[size] * 1300;
 
-    if (rooms === 2) total += 8000;
-    total += kitchen + toilet;
+  if (rooms === 2) total += 8000;
+  total += kitchen + toilet;
 
-    const flooringCost = {
-      "20x10": { tiles: 12000, wood: 18000 },
-      "30x10": { tiles: 18000, wood: 25000 },
-      "40x10": { tiles: 25000, wood: 32000 }
-    };
+  const flooringCost = {
+    "20x10": { tiles: 12000, wood: 18000 },
+    "30x10": { tiles: 18000, wood: 25000 },
+    "40x10": { tiles: 25000, wood: 32000 }
+  };
 
-    if (flooring === "tiles") total += flooringCost[size].tiles;
-    if (flooring === "wood") total += flooringCost[size].wood;
+  if (flooring === "tiles") total += flooringCost[size].tiles;
+  if (flooring === "wood") total += flooringCost[size].wood;
 
-    let bedPrice = 0;
-    if (bedType === "single") bedPrice = 8000;
-    if (bedType === "double") bedPrice = 16000;
-    if (bedType === "bunk") bedPrice = 15000;
+  let bedPrice = 0;
+  if (bedType === "single") bedPrice = 8000;
+  if (bedType === "double") bedPrice = 16000;
+  if (bedType === "bunk") bedPrice = 15000;
 
-    total += bedPrice * bedCount;
+  total += bedPrice * bedCount;
 
-    document.getElementById("total").innerText =
-      "Total: ₹" + total.toLocaleString("en-IN");
+  document.getElementById("total").innerText =
+    "Total: ₹" + total.toLocaleString("en-IN");
+
+  // close popup after calculation
+  document.getElementById("priceModal").style.display = "none";
+}
+document.getElementById("popupForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const city = document.getElementById("city").value.trim();
+
+  if (!name || !mobile || !email || !city) {
+    alert("Please fill all mandatory details");
+    return;
   }
 
+  // run price calculation AFTER form validation
+  calculatePriceAfterForm();
+});
+const modal = document.getElementById("priceModal");
+const closeBtn = document.querySelector(".close-btn");
+
+closeBtn.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
   window.calculate = calculate;
 
   function updateBedroomDropdown() {
