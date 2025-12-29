@@ -70,6 +70,65 @@ body{background:#000;color:#f5c542}
   background:#000;border:1px solid #f5c542;padding:20px
 }
 
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal Box */
+.modal-content {
+  background: #000;
+  color: gold;
+  width: 400px;
+  margin: 8% auto;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid gold;
+}
+
+/* Close Button */
+.close-btn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  color: gold;
+}
+
+/* Form */
+.modal-content label {
+  display: block;
+  margin-top: 12px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background: gold;
+  color: black;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 /* ===== PRODUCTS ===== */
 .products{
   padding:80px 10%;background:#000;text-align:center
