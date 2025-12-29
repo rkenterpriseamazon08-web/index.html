@@ -228,29 +228,42 @@ footer{
 .site-footer {
   background: #000;
   border-top: 1px solid #f5c542;
-  padding: 25px 15px;
-  text-align: center;
+  padding: 15px 25px;
 }
 
-.site-footer p {
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left {
   color: #f5c542;
-  margin-bottom: 12px;
   font-size: 14px;
 }
 
-.footer-links {
+.footer-right {
   display: flex;
+  gap: 15px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
 }
 
-.footer-links a {
+.footer-right a {
   color: #f5c542;
   text-decoration: none;
   font-size: 13px;
 }
 
-.footer-links a:hover {
+.footer-right a:hover {
   text-decoration: underline;
+}
+
+/* Mobile footer stacking */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
