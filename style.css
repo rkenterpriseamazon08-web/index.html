@@ -225,3 +225,32 @@ footer{
     0 2px 0 #b89a2e,
     0 0 10px rgba(245, 197, 66, 0.5);
 }
+.site-footer {
+  background: #000;
+  border-top: 1px solid #f5c542;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+.site-footer p {
+  color: #f5c542;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #f5c542;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
