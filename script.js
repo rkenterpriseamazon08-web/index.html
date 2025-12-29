@@ -46,27 +46,33 @@ function calculatePriceAfterForm() {
 document.getElementById("popupForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const mobile = document.getElementById("mobile").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const city = document.getElementById("city").value.trim();
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    mobile: document.getElementById("mobile").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    city: document.getElementById("city").value.trim(),
+    truckAccess: document.querySelector('input[name="truckAccess"]:checked').value
+  };
 
-  if (!name || !mobile || !email || !city) {
-    alert("Please fill all mandatory details");
-    return;
-  }
-
-  // run price calculation AFTER form validation
-  calculatePriceAfterForm();
+  fetch("https://script.google.com/macros/s/AKfycbyTkSraAm3-oy3V2atGUPMI-TQ0O3vzbhfRmmSgdT5VA0ebm7YM0-8oTrgYEARKMmvJMg/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.json())
+  .then(() => {
+    alert("Details submitted successfully!");
+    document.getElementById("popupForm").reset();
+    document.getElementById("priceModal").style.display = "none";
+  })
+  .catch(err => {
+    alert("Something went wrong. Please try again.");
+    console.error(err);
+  });
 });
-const modal = document.getElementById("priceModal");
-const closeBtn = document.querySelector(".close-btn");
 
-closeBtn.onclick = () => modal.style.display = "none";
-
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
   window.calculate = calculate;
 
   function updateBedroomDropdown() {
