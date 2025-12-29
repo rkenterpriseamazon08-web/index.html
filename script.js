@@ -63,28 +63,29 @@ document.getElementById("popupForm").addEventListener("submit", function (e) {
     truckAccess: truckAccessValue
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbyTkSraAm3-oy3V2atGUPMI-TQ0O3vzbhfRmmSgdT5VA0ebm7YM0-8oTrgYEARKMmvJMg/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzbdngRY0ae-34rKn-bBvp0SlfcZkpQX9H9kqGAlSl0i3_JbL45Zoaf0r7sWgIozDJe/exec", {
     method: "POST",
+    mode: "no-cors",   // REQUIRED
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
     }
   })
-  .then(res => res.json())
-  .then(response => {
-    if (response.status === "success") {
-      alert("Details submitted successfully!");
-      document.getElementById("popupForm").reset();
-      document.getElementById("priceModal").style.display = "none";
-    } else {
-      alert("Submission failed");
-    }
+  .then(() => {
+    // ✅ SUCCESS (no error thrown)
+    alert("Details submitted successfully!");
+    document.getElementById("popupForm").reset();
+    document.getElementById("priceModal").style.display = "none";
+
+    // 🔥 NOW calculate price
+    calculatePriceAfterForm();
   })
   .catch(err => {
-    alert("Something went wrong. Please try again.");
     console.error(err);
+    alert("Network error. Please try again.");
   });
 });
+
 
 
   window.calculate = calculate;
