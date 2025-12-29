@@ -46,9 +46,9 @@ function calculatePriceAfterForm() {
 document.getElementById("popupForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const truckAccessEl = document.querySelector('input[name="truckAccess"]:checked');
+  const truckAccessValue = document.getElementById("truckAccess").value;
 
-  if (!truckAccessEl) {
+  if (!truckAccessValue) {
     alert("Please select truck accessible road (Yes / No)");
     return;
   }
@@ -57,13 +57,13 @@ document.getElementById("popupForm").addEventListener("submit", function (e) {
     name: document.getElementById("name").value.trim(),
     mobile: document.getElementById("mobile").value.trim(),
     email: document.getElementById("email").value.trim(),
-    fullAddress: document.getElementById("address")?.value.trim() || "",
+    fullAddress: document.getElementById("address").value.trim(),
     city: document.getElementById("city").value.trim(),
-    truckAccess: truckAccessEl.value,
-    pincode: document.getElementById("pincode")?.value.trim() || ""
+    pincode: document.getElementById("pincode").value.trim(),
+    truckAccess: truckAccessValue
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbxqAtV-QAtl6JG05nT-wochacg6aBI3Sm-UVQ-HxATBDXbG0zQ51e0R1ub0Ldxcy3GNyw/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyTkSraAm3-oy3V2atGUPMI-TQ0O3vzbhfRmmSgdT5VA0ebm7YM0-8oTrgYEARKMmvJMg/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -77,7 +77,7 @@ document.getElementById("popupForm").addEventListener("submit", function (e) {
       document.getElementById("popupForm").reset();
       document.getElementById("priceModal").style.display = "none";
     } else {
-      throw new Error("Submission failed");
+      alert("Submission failed");
     }
   })
   .catch(err => {
