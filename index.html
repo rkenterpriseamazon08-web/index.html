@@ -157,13 +157,13 @@
       <input type="email" id="email" required>
       
       <label>Full Address *</label>
-      <input type="text" id="city" required>
+      <input type="text" id="address" required>
       
       <label>City *</label>
       <input type="text" id="city" >
 
       <label>Pincode *</label>
-      <input type="tel" id="mobile" required pattern="[0-9]{6}" placeholder="6 digit pincode">
+      <input type="tel" id="pincode" required pattern="[0-9]{6}" placeholder="6 digit pincode">
       <label class="question-label">
         Do you have truck accessible road? <span>*</span>
       </label>
@@ -171,10 +171,14 @@
      
       <div class="radio-group">
 
-        <select id="kitchen">
-          <option value="0">No</option>
-          <option value="25000">Yes</option>
+  
+
+        <select id="truckAccess">
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
         </select>
+        
 
         
       </div>
