@@ -335,7 +335,8 @@ body{background:#000;color:#f5c542}
 }
 .products h2 {
   font-size: clamp(28px, 4vw, 40px);
-  margin-bottom: 50px;
+  margin-bottom: 8px;
+  margin-top: -20px;
   letter-spacing: 1px;
   text-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
 }
@@ -1408,6 +1409,11 @@ footer{
   animation-delay: 0.9s;
 }
 
+.delay-3 {
+  animation-delay: 1.5s;
+}
+
+
 /* Keyframes */
 @keyframes fadeUp {
   from {
@@ -1570,5 +1576,70 @@ footer{
 @media (max-width: 600px) {
   .product-card img {
     height: 190px;
+  }
+}
+.section-divider {
+  width: 105px;
+  height: 5px;
+  margin: 10px auto 60px;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    gold,
+    #ffd700,
+    gold,
+    transparent
+  );
+  position: relative;
+  overflow: hidden;
+}
+.section-divider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.9),
+    transparent 70%
+  );
+  animation: dividerGlow 2.5s linear infinite;
+}
+@keyframes dividerGlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (max-width: 768px) {
+  .section-divider {
+    width: 70px;
+    height: 3px;
+  }
+
+  .section-divider::after {
+    animation-duration: 3.5s;
+  }
+}
+/* Initial state */
+.scroll-up-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* Active when visible */
+.scroll-up-animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .scroll-up-animate {
+    transform: translateY(30px);
+    transition-duration: 0.7s;
   }
 }
