@@ -1,43 +1,164 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#000;color:#f5c542}
 
-/* ===== HEADER ===== */
-.header{
-  position:fixed;top:0;width:100%;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 40px;height:70px;
-  background:#000;border-bottom:1px solid #f5c542
+/* ===== HEADER ===== 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 5%;
+  min-height: 60px; /
+}
+
+.header a{color:#f5c542;margin-left:20px;text-decoration:none}
+
+*/
+
+/* ===== TRANSPARENT HEADER ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 5%;
+  min-height: 60px;
+
+  background: rgba(0, 0, 0, 0.25); /* transparent */
+  backdrop-filter: blur(6px);     /* glass effect */
+  -webkit-backdrop-filter: blur(6px);
+
+  border-bottom: 1px solid rgba(245, 197, 66, 0.25);
+
+  z-index: 999;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
 }
 .header a{color:#f5c542;margin-left:20px;text-decoration:none}
-.logo{
-  display:flex;align-items:center;gap:10px;
-  font-size:22px;font-weight:bold;
-  color:#f5c542;text-decoration:none
+.header.scrolled {
+  background: #000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7);
 }
-.logo img{
-  height:52px;width:52px;border-radius:50%;
-  object-fit:cover;border:2px solid #f5c542
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== LOGO CONTAINER ===== */
+.logo {
+  margin-left: -10px;
+  display: flex;
+     /* 🔥 allow wide logo */
 }
+
+/* ===== LOGO IMAGE (IMPORTANT) ===== */
+.logo img {
+  
+  width: 920px;        /* 🔥 FORCE WIDTH */
+  height: auto;        /* keep proportions */
+  max-width: 30%;
+  object-fit: contain;
+}
+
+
+
+@media (max-width: 768px) {
+  .header {
+    height: 70px;
+  }
+
+  .logo img {
+    height: 50px;
+    min-width: 200px;
+    max-width: 260px;
+  }
+}
+
 
 /* ===== HERO ===== */
 .hero{
-  min-height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url("assets/hero.jpg") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  padding-top:80px
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  color: #fff;
 }
+
+.nav a:hover {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+}
+
+/* SLIDESHOW BACKGROUND */
+.hero-slideshow{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  animation: heroSlide 18s infinite ease-in-out;
+}
+
+/* Dark overlay */
+.hero-slideshow::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75));
+}
+
 .hero h1 span{color:#ffd700}
+/* Hero content above slideshow */
 .hero-content{
-  max-width:900px;margin:0 auto;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
+/* Text styles */
 .hero-content h1{font-size:42px;margin-bottom:16px}
+.hero-content h1 span{color:#ffd700}
 .hero-content p{font-size:18px;margin-bottom:28px;color:#f5c542}
-.hero-buttons{display:flex;gap:20px;justify-content:center}
+
+.hero-buttons{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+/* SLIDESHOW IMAGES */
+@keyframes heroSlide {
+  0%   { background-image: url("assets/hero.jpg"); }
+  33%  { background-image: url("assets/slide2.jpg"); }
+  66%  { background-image: url("assets/slide3.jpg"); }
+  100% { background-image: url("assets/slide4.jpg"); }
+}
 
 /* ===== BUTTONS ===== */
 .btn{
@@ -1147,6 +1268,15 @@ footer{
     transform: translateY(0);
   }
 }
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+
 
 /* ===== Slide In From Left ===== */
 .slide-in-left {
@@ -1198,6 +1328,9 @@ footer{
 .slide-in-right {
   text-shadow: 0 0 16px rgba(255, 215, 0, 0.2);
 }
+
+
+
 
 /* ===== PRODUCTS SECTION ===== */
 .products {
