@@ -151,3 +151,20 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const scrollElements = document.querySelectorAll('.scroll-up-animate');
+
+const ob = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  },
+  {
+    threshold: 0.4
+  }
+);
+
+scrollElements.forEach(el => ob.observe(el));
+
