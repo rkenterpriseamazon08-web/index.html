@@ -204,6 +204,13 @@ body{background:#000;color:#f5c542}
   100% { background-image: url("assets/slide4.jpg"); }
 }
 
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+}
+
+
 /* ===== BUTTONS ===== */
 .btn{
   padding:14px 28px;font-size:16px;font-weight:600;
