@@ -68,11 +68,11 @@ body{background:#000;color:#f5c542}
      /* 🔥 allow wide logo */
 }
 
-/* ===== LOGO IMAGE (IMPORTANT) ===== */
+/* ===== LOGO IMAGE (IMPORTANT) ===== 
 .logo img {
   
-  width: 920px;        /* 🔥 FORCE WIDTH */
-  height: auto;        /* keep proportions */
+  width: 920px;        
+  height: auto;       
   max-width: 30%;
   object-fit: contain;
 }
@@ -90,7 +90,51 @@ body{background:#000;color:#f5c542}
     max-width: 260px;
   }
 }
+*/
 
+
+
+.logo img {
+  height: 48px;
+  transition: height 0.35s ease, filter 0.35s ease;
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+/* Stronger glow when hovering */
+.logo img:hover {
+  filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.95));
+}
+
+/* Shrink logo when header scrolls */
+.header.scrolled .logo img {
+  height: 34px;
+  animation: logoGlowSmall 3s ease-in-out infinite;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes logoGlow {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
+  }
+  100% {
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+  }
+}
+
+@keyframes logoGlowSmall {
+  0% {
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+  }
+  100% {
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.35));
+  }
+}
 
 /* ===== HERO ===== */
 .hero{
