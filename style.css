@@ -479,7 +479,7 @@ select,.calculator button,.full-input{
 }
 .full-input{border-radius:4px;border:1px solid #ccc}
 .calc-btn{margin-top:30px;cursor:pointer}
-#calculator h2{text-align:center;margin-bottom:30px}
+#calculator h2{text-align:center;padding-top: 40px;margin-bottom:40px}
 .total-box{
   margin-top:20px;font-weight:bold;font-size:18px;
   color:#ffd54f;border:2px solid #ffd54f;
@@ -2449,3 +2449,37 @@ footer{
   }
 }
 
+
+/* ================================
+   OUR SOLUTIONS HEADER SECTION
+================================ */
+
+.solutions-header {
+  background: #000;
+  text-align: center;
+  padding: 10px 20px 0px;
+}
+
+.solutions-header h2 {
+  font-size: 36px;
+  color: #ffd700;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+/* Divider line */
+.solutions-divider {
+  padding-top: 10;
+  display: inline-block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  border-radius: 4px;
+}
+
+/* PRODUCTS SECTION SPACING */
+.products {
+  position: relative;
+  padding-top: 20px; /* separates from header */
+}
