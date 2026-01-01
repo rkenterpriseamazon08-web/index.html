@@ -1920,3 +1920,92 @@ footer{
     gap: 20px;
   }
 }
+
+/* Customers Hero Icons */
+.customers-icons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 64px;
+  color: #ffd700;
+}
+
+.customer-icon {
+  animation: floatIcon 3s infinite ease-in-out;
+}
+
+.customer-icon.delay {
+  animation-delay: 1s;
+}
+
+/* Reviews Section */
+.reviews-section {
+  background: #000;
+  padding: 70px 20px;
+}
+
+.reviews-title {
+  text-align: center;
+  font-size: 32px;
+  color: #ffd700;
+  margin-bottom: 50px;
+}
+
+.reviews-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.review-card {
+  background: #111;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.6);
+  transition: transform .3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+}
+
+.review-card i {
+  color: #ffd700;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.review-card p {
+  color: #ddd;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.review-card h4 {
+  margin-top: 18px;
+  color: #ffd700;
+  font-size: 16px;
+}
+
+.review-card span {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* Animations */
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .customers-icons {
+    font-size: 42px;
+    gap: 24px;
+  }
+}
+
