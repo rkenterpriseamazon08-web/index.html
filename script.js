@@ -238,3 +238,15 @@ function slideProducts(direction) {
     behavior: "smooth"
   });
 }
+
+const observer1 = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+});
+
+document.querySelectorAll(".scroll-up-animate").forEach(el => {
+  observer1.observe(el);
+});
