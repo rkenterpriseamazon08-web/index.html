@@ -2457,15 +2457,15 @@ footer{
 .solutions-header {
   background: #000;
   text-align: center;
-  padding: 10px 20px 0px;
+  padding: 20px 10px 0px;
 }
 
 .solutions-header h2 {
   font-size: 36px;
   color: #ffd700;
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
+  letter-spacing: 3px;
+  margin-bottom: -3px;
 }
 
 /* Divider line */
@@ -2475,8 +2475,27 @@ footer{
   width: 80px;
   height: 4px;
   background: linear-gradient(90deg, transparent, #ffd700, transparent);
-  border-radius: 4px;
+  border-radius: 1px;
 }
+
+@media (max-width: 768px) {
+
+  .solutions-header {
+    padding: 16px 12px 6px;
+  }
+
+  .solutions-header h2 {
+    font-size: 24px;              /* smaller & readable */
+    letter-spacing: 1.5px;       /* tighter spacing */
+    margin-bottom: 4px;
+  }
+
+  .solutions-divider {
+    width: 55px;                 /* shorter divider */
+    height: 3px;
+  }
+}
+
 
 /* PRODUCTS SECTION SPACING */
 .products {
