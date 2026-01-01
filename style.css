@@ -2481,13 +2481,13 @@ footer{
 @media (max-width: 768px) {
 
   .solutions-header {
-    padding: 16px 12px 6px;
+    padding: 16px 12px 0px;
   }
 
   .solutions-header h2 {
     font-size: 24px;              /* smaller & readable */
     letter-spacing: 1.5px;       /* tighter spacing */
-    margin-bottom: 4px;
+    margin-bottom: -3px;
   }
 
   .solutions-divider {
