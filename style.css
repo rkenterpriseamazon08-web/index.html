@@ -1784,3 +1784,63 @@ footer{
   }
 }
 
+
+/* Shipping Hero Icons */
+.shipping-icons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 42px;
+  color: #ffd700;
+}
+
+.truck-icon {
+  animation: truckMove 3s infinite alternate ease-in-out;
+}
+
+.container-icon {
+  animation: floatBox 2.5s infinite ease-in-out;
+}
+
+.location-icon {
+  animation: pulsePin 2s infinite;
+}
+
+/* Section Icon Animation */
+.icon-animate {
+  margin-right: 8px;
+  color: #ffd700;
+  animation: iconBounce 2s infinite;
+}
+
+/* Animations */
+@keyframes truckMove {
+  from { transform: translateX(-10px); }
+  to { transform: translateX(10px); }
+}
+
+@keyframes floatBox {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulsePin {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: .7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .shipping-icons {
+    font-size: 32px;
+    gap: 20px;
+  }
+}
+
