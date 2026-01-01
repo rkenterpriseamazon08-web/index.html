@@ -532,23 +532,40 @@ select,.calculator button,.full-input{
 /* ===== NAV ===== */
 .nav-wrapper{display:flex;align-items:center}
 .menu-toggle{
-  display:none;font-size:28px;
-  color:#f5c542;cursor:pointer
+  display: none;
+  font-size: 28px;
+  color: #ffd700;
+  cursor: pointer;
+  z-index: 1001;
 }
 .nav{display:flex;gap:30px}
-@media(max-width:768px){
-  .menu-toggle{display:block}
-  .nav{
-    position:absolute;top:70px;right:0;
-    width:100%;background:#000;
-    flex-direction:column;align-items:center;
-    display:none;border-top:2px solid #f5c542
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
   }
-  .nav a{
-    width:100%;padding:15px 0;
-    text-align:center;border-bottom:1px solid #222
+
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px 0;
+    z-index: 1000;
   }
-  .nav.show{display:flex}
+
+  .nav a {
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  /* ACTIVE STATE */
+  .nav.active {
+    display: flex;
+  }
 }
 
 /* ===== FOOTER ===== */
