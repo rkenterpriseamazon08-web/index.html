@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>2D Container Configurator | R.K. Enterprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="2d-configurator.css" />
+</head>
+<body>
+
+<header class="config-header">
+  <h1>2D Container Configurator</h1>
+  <p>Design your container layout visually</p>
+</header>
+
+<div class="configurator">
+
+  <!-- LEFT TOOLBAR -->
+  <aside class="toolbar">
+    <h3>Add Container</h3>
+
+    <button onclick="addContainer('20')">20 ft Container</button>
+    <button onclick="addContainer('40')">40 ft Container</button>
+
+    <hr />
+
+    <button class="danger" onclick="clearCanvas()">Clear Layout</button>
+  </aside>
+
+  <!-- CANVAS -->
+  <main class="canvas-wrapper">
+    <div id="grid">
+      <!-- Containers added dynamically -->
+    </div>
+  </main>
+
+</div>
+
+<script src="2d-configurator.js"></script>
+</body>
+</html>
