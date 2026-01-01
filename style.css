@@ -2631,7 +2631,7 @@ height: 100svh;
   text-align: center;
   letter-spacing: 0.5px;
   color: #ffd700;
-
+padding-top: 60px;
   /* Shimmer magic */
   background: linear-gradient(
     120deg,
