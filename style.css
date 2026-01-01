@@ -2487,7 +2487,6 @@ footer{
 
 
 
-
 /* ================================
    START YOUR DESIGN – CTA
 ================================ */
@@ -2498,7 +2497,7 @@ footer{
     #000 0%,
     #0d0d0d 100%
   );
-  padding: 80px 20px;
+  padding: 50px 20px;
   text-align: center;
   border-top: 1px solid rgba(255,215,0,0.25);
   border-bottom: 1px solid rgba(255,215,0,0.25);
@@ -2544,3 +2543,13 @@ footer{
 }
 
 
+@media (max-width: 768px) {
+  .solutions-section {
+  min-height: 100svh; /* Better than 100vh on mobile */
+  }
+  
+  .solutions-section .bg-video {
+  width: 100vw;
+  height: 100svh;
+  }
+  }
