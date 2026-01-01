@@ -2483,3 +2483,44 @@ footer{
   position: relative;
   padding-top: 20px; /* separates from header */
 }
+
+
+
+
+
+
+/* ================================
+   OUR SOLUTIONS – MOBILE VIEW
+================================ */
+
+@media (max-width: 768px) {
+
+  /* Header section */
+  .solutions-header {
+    padding: 50px 16px 30px;
+    background: #000;
+  }
+
+  .solutions-header h2 {
+    font-size: 24px;           /* smaller, readable */
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+  }
+
+  .solutions-divider {
+    width: 60px;
+    height: 3px;
+  }
+
+  /* Products section separation */
+  .products {
+    padding-top: 20px;
+  }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+  .solutions-header {
+    padding: 40p
+
