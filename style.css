@@ -1787,11 +1787,11 @@ footer{
 
 /* Shipping Hero Icons */
 .shipping-icons {
-  margin-top: 25px;
+  margin-top: 40px;              /* pushes icons downward */
   display: flex;
   justify-content: center;
-  gap: 30px;
-  font-size: 42px;
+  gap: 40px;                     /* more spacing between icons */
+  font-size: 64px;               /* BIGGER ICONS */
   color: #ffd700;
 }
 
@@ -1839,8 +1839,10 @@ footer{
 /* Mobile */
 @media (max-width: 768px) {
   .shipping-icons {
-    font-size: 32px;
-    gap: 20px;
+    margin-top: 28px;
+    font-size: 42px;   /* slightly smaller on mobile */
+    gap: 24px;
+
   }
 }
 
