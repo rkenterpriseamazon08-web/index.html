@@ -1862,4 +1862,61 @@ footer{
 
   }
 }
+/* Payment Hero Icons */
+.payment-icons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 42px;
+  color: #ffd700;
+}
 
+.card-icon {
+  animation: swipeCard 2.5s infinite alternate;
+}
+
+.invoice-icon {
+  animation: floatInvoice 3s infinite ease-in-out;
+}
+
+.secure-icon {
+  animation: shieldPulse 2s infinite;
+}
+
+/* Section Icons */
+.icon-animate {
+  margin-right: 8px;
+  color: #ffd700;
+  animation: iconBounce 2s infinite;
+}
+
+/* Animations */
+@keyframes swipeCard {
+  from { transform: translateX(-6px); }
+  to { transform: translateX(6px); }
+}
+
+@keyframes floatInvoice {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shieldPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: .75; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .payment-icons {
+    font-size: 32px;
+    gap: 20px;
+  }
+}
