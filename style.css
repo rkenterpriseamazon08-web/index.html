@@ -456,7 +456,9 @@ body{background:#000;color:#f5c542}
 }
 @media (max-width: 768px) {
   .bg-video {
-    display: block;
+    
+    object-fit: contain;
+    object-position: center center;
   }
 
   .products {
