@@ -238,6 +238,3 @@ function slideProducts(direction) {
     behavior: "smooth"
   });
 }
-
-
-
