@@ -2009,3 +2009,39 @@ footer{
   }
 }
 
+/* Star Rating */
+.star-rating {
+  margin: 12px 0 15px;
+  display: flex;
+  gap: 6px;
+}
+
+.star-rating i {
+  color: #ffd700;
+  font-size: 18px;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: starPop 0.5s forwards;
+}
+
+/* Staggered animation */
+.star-rating i:nth-child(1) { animation-delay: 0.1s; }
+.star-rating i:nth-child(2) { animation-delay: 0.2s; }
+.star-rating i:nth-child(3) { animation-delay: 0.3s; }
+.star-rating i:nth-child(4) { animation-delay: 0.4s; }
+.star-rating i:nth-child(5) { animation-delay: 0.5s; }
+
+/* Animation */
+@keyframes starPop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover glow effect (optional but nice) */
+.review-card:hover .star-rating i {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+
