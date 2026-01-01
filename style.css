@@ -2488,4 +2488,59 @@ footer{
 
 
 
+/* ================================
+   START YOUR DESIGN – CTA
+================================ */
+
+.design-cta {
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    #0d0d0d 100%
+  );
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,215,0,0.25);
+  border-bottom: 1px solid rgba(255,215,0,0.25);
+}
+
+.design-cta-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.design-cta h2 {
+  font-size: 36px;
+  color: #ffd700;
+  margin-bottom: 12px;
+  letter-spacing: 0.8px;
+}
+
+.design-cta p {
+  color: rgba(255,255,255,0.75);
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* CTA BUTTON */
+.design-btn {
+  display: inline-block;
+  padding: 14px 38px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #ffd700, #ffcc33);
+  color: #000;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+}
+
+/* Hover effect */
+.design-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(255,215,0,0.6);
+}
+
 
