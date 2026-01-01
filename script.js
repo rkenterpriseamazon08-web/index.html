@@ -184,3 +184,60 @@ document.querySelectorAll("#navMenu a").forEach(link => {
     document.getElementById("navMenu").classList.remove("active");
   });
 });
+
+
+
+function slideProducts(direction) {
+  const slider = document.getElementById("productSlider");
+  const card = slider.querySelector(".product-card");
+
+  if (!card) return;
+
+  const cardWidth = card.offsetWidth + 32; // card + gap
+  const scrollAmount = cardWidth * 3;      // slide by 3 cards
+
+  slider.scrollBy({
+    left: direction * scrollAmount,
+    behavior: "smooth"
+  });
+}
+
+
+
+
+
+
+
+const slider = document.getElementById("productSlider");
+const bgWrapper = document.getElementById("bgVideoWrapper");
+
+let blurTimeout;
+
+if (slider && bgWrapper) {
+  slider.addEventListener("scroll", () => {
+    bgWrapper.classList.add("blur-active");
+
+    clearTimeout(blurTimeout);
+    blurTimeout = setTimeout(() => {
+      bgWrapper.classList.remove("blur-active");
+    }, 250); // blur fades when sliding stops
+  });
+}
+
+function slideProducts(direction) {
+  const slider = document.getElementById("productSlider");
+  const card = slider.querySelector(".product-card");
+
+  if (!card) return;
+
+  const cardWidth = card.offsetWidth + 32; // card + gap
+  const scrollAmount = cardWidth * 3;      // slide by 3 cards
+
+  slider.scrollBy({
+    left: direction * scrollAmount,
+    behavior: "smooth"
+  });
+}
+
+
+
