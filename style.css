@@ -2181,7 +2181,7 @@ footer{
 
 /* Slider flow */
 .product-slider {
-  padding: 40px 12px 60px;
+  padding: 440px 12px 60px;
   align-items: stretch;
 }
 
@@ -2416,7 +2416,7 @@ footer{
 /* ===== ARROWS ===== */
 .slider-btn {
   position: absolute;
-  top: 50%;
+  top: 75%;
   transform: translateY(-50%);
   z-index: 5;
 }
@@ -2487,7 +2487,7 @@ footer{
   .solutions-header h2 {
     font-size: 24px;              /* smaller & readable */
     letter-spacing: 1.5px;       /* tighter spacing */
-    margin-bottom: -3px;
+    margin-bottom: -px;
   }
 
   .solutions-divider {
