@@ -79,7 +79,7 @@ body{background:#000;color:#f5c542}
 
 
 
-@media (max-width: 768px) {
+ (max-width: 768px) {
   .header {
     height: 70px;
   }
@@ -456,7 +456,7 @@ body{background:#000;color:#f5c542}
 }
 @media (max-width: 768px) {
   .bg-video {
-    display: none;
+    display: block;
   }
 
   .products {
@@ -2041,3 +2041,5 @@ footer{
     transform: scale(1);
   }
 }
+
+
