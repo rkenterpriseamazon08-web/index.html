@@ -63,57 +63,81 @@
 <section id="products" class="products">
 
    <!-- Background Video -->
-   <video class="bg-video" autoplay muted loop playsinline preload="auto">
-    <source src="assets/bgv23.mp4" type="video/mp4">
-  </video>
+  <div class="bg-video-wrapper" id="bgVideoWrapper">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/bgv23.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <!-- Dark Overlay -->
   <div class="video-overlay"></div>
  <h2 class="process-heading scroll-up-animate">Our Solutions</h2>
  <div class="section-divider scroll-up-animate"></div>
 
-  <div class="product-grid">
+ <div class="product-slider-wrapper premium-slider">
+
+  <button class="slider-btn left" onclick="slideProducts(-1)">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <div class="product-slider" id="productSlider">
 
     <a href="gallery.html?type=container-houses" class="product-card">
       <img src="assets/house1.jpg" alt="Container Houses">
+      <span class="explore-btn">Explore</span>
       <h3>Container Houses</h3>
     </a>
 
     <a href="gallery.html?type=porta-cabins" class="product-card">
       <img src="assets/ms-porta-cabins1.jpg" alt="MS Porta Cabins">
+      <span class="explore-btn">Explore</span>
       <h3>MS Porta Cabins</h3>
     </a>
 
     <a href="gallery.html?type=portable-offices" class="product-card">
       <img src="assets/portableoffice1.jpg" alt="Portable Offices">
+      <span class="explore-btn">Explore</span>
       <h3>Portable Offices</h3>
     </a>
 
     <a href="gallery.html?type=security-cabins" class="product-card">
       <img src="assets/porta-cabins1.webp" alt="Security Cabins">
+      <span class="explore-btn">Explore</span>
       <h3>Security Cabins</h3>
     </a>
 
     <a href="gallery.html?type=farmhouse" class="product-card">
       <img src="assets/farmhouse1.jpeg" alt="Farmhouse Containers">
+      <span class="explore-btn">Explore</span>
       <h3>Farmhouse Container Homes</h3>
     </a>
 
     <a href="gallery.html?type=custom" class="product-card">
       <img src="assets/Custom-Shipping-Containers1.jpg" alt="Custom Containers">
+      <span class="explore-btn">Explore</span>
       <h3>Custom Container Solutions</h3>
     </a>
 
     <a href="gallery.html?type=container-houses" class="product-card">
       <img src="assets/cafe1.jfif" alt="Container Houses">
+      <span class="explore-btn">Explore</span>
       <h3>Container Cafe</h3>
     </a>
     
      <a href="gallery.html?type=portable-offices" class="product-card">
       <img src="assets/spr1.jpg" alt="Portable Offices">
+      <span class="explore-btn">Explore</span>
       <h3>Sauna Plunge Container</h3>
     </a>
+
   </div>
+
+  <button class="slider-btn right" onclick="slideProducts(1)">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+</div>
+
 </section>
 
 
@@ -385,7 +409,6 @@
 <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
