@@ -2043,3 +2043,29 @@ footer{
 }
 
 
+
+
+
+
+/* FORCE 3 CARDS PER ROW ON MOBILE */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px; /* reduce gap for small screens */
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+
+  .product-card img {
+    height: 110px; /* smaller image for mobile */
+  }
+
+  .product-card h3 {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+
