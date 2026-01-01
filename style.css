@@ -2492,7 +2492,7 @@ footer{
   .solutions-header h2 {
     font-size: 24px;              /* smaller & readable */
     letter-spacing: 1.5px;       /* tighter spacing */
-    margin-bottom: -px;
+    margin-bottom: -3px;
   }
 
   .solutions-divider {
