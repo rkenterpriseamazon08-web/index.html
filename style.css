@@ -2697,22 +2697,7 @@ padding-top: 60px;
     background-position: 200% center;
   }
 }
-@media (max-width: 768px) {
 
-  .shimmer-text {
-    font-size: 18px;
-    padding-top: 40px;
-
-    /* 🔥 iOS Safari FIX */
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-
-    animation:
-      fadeUp 1s ease-out forwards,
-      shimmer 2.5s linear infinite;
-  }
-
-}
 
 
 @media (max-width: 768px) {
