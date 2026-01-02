@@ -255,16 +255,20 @@ document.querySelectorAll(".scroll-up-animate").forEach(el => {
 
 
 const splitObserver = new IntersectionObserver(
-  (entries) => {
+  entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
       }
     });
   },
-  { threshold: 0.4 }
+  {
+    threshold: 0.15,                 // ✅ mobile friendly
+    rootMargin: "0px 0px -10% 0px"   // ✅ triggers earlier
+  }
 );
 
 document.querySelectorAll(".scroll-split").forEach(el => {
   splitObserver.observe(el);
 });
+
