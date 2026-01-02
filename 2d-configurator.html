@@ -6,34 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="2d-configurator.css" />
 </head>
-<body>
+<body class="configurator-body">
 
-<header class="config-header">
-  <h1>2D Container Configurator</h1>
-  <p>Design your container layout visually</p>
-</header>
+<div class="configurator-overlay active">
+  <div class="configurator-modal animate-in">
 
-<div class="configurator">
+    <h2 id="question-title"></h2>
 
-  <!-- LEFT TOOLBAR -->
-  <aside class="toolbar">
-    <h3>Add Container</h3>
+    <div id="options-container"></div>
 
-    <button onclick="addContainer('20')">20 ft Container</button>
-    <button onclick="addContainer('40')">40 ft Container</button>
+    
 
-    <hr />
-
-    <button class="danger" onclick="clearCanvas()">Clear Layout</button>
-  </aside>
-
-  <!-- CANVAS -->
-  <main class="canvas-wrapper">
-    <div id="grid">
-      <!-- Containers added dynamically -->
-    </div>
-  </main>
-
+  </div>
 </div>
 
 <script src="2d-configurator.js"></script>
