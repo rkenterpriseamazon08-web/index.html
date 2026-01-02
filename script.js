@@ -250,3 +250,21 @@ const observer1 = new IntersectionObserver(entries => {
 document.querySelectorAll(".scroll-up-animate").forEach(el => {
   observer1.observe(el);
 });
+
+
+
+
+const splitObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+
+document.querySelectorAll(".scroll-split").forEach(el => {
+  splitObserver.observe(el);
+});
