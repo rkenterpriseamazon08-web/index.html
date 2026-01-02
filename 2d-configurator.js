@@ -1,3 +1,8 @@
+const backBtn = document.getElementById("backBtn");
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
 
 
 const steps = [
@@ -24,10 +29,23 @@ const container = document.getElementById("options-container");
 const nextBtn = document.getElementById("nextBtn");
 
 function loadStep() {
+  if (backBtn && isMobile()) {
+  document.body.appendChild(backBtn);
+}
+
   container.innerHTML = "";
   title.textContent = steps[currentStep].question;
 
-  if (backBtn) backBtn.disabled = currentStep === 0;
+  if (backBtn) {
+  backBtn.style.display = currentStep === 0 ? "none" : "block";
+
+  if (isMobile()) {
+    backBtn.classList.add("mobile-back");
+  } else {
+    backBtn.classList.remove("mobile-back");
+  }
+}
+
 
   // 👉 FINAL FORM STEP
   if (steps[currentStep].type === "form") {
