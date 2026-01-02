@@ -2722,4 +2722,67 @@ padding-top: 60px;
     z-index: -1; /* sits behind cards */
   }
 
+
+
+
+
+  /* ================================
+   MOBILE SWIPE ARROW HINT
+================================ */
+
+.swipe-hint {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  color: #ffd700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0;
+}
+
+/* Arrows */
+.swipe-hint .arrow {
+  font-size: 20px;
+  font-weight: 700;
+  animation: arrowMove 1.6s ease-in-out infinite;
+}
+
+/* Right arrow delayed */
+.swipe-hint .right {
+  animation-delay: 0.8s;
+}
+
+/* Fade-in when visible */
+.scroll-up-animate.active + .swipe-hint {
+  opacity: 1;
+}
+
+/* Arrow motion */
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+}
+
+/* ================================
+   MOBILE ENABLE
+================================ */
+@media (max-width: 768px) {
+  .swipe-hint {
+    display: flex;
+  }
+}
+
+
 }
