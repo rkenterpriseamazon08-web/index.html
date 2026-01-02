@@ -1,49 +1,19 @@
+
+
 const steps = [
-  {
-    question: "Which container model are you interested in?",
-    options: ["Kennedy", "Ezra", "Augustine", "Custom Build"]
-  },
-  {
-    question: "Select your floor plan",
-    options: ["Floorplan A", "Floorplan B"]
-  },
-  {
-    question: "Select an Exterior Color",
-    options: ["Black", "Grey", "White", "Custom"]
-  },
-  {
-    question: "Select Flooring",
-    options: ["Wood", "Concrete", "Tile"]
-  },
-  {
-    question: "Select your wall finish",
-    options: ["Drywall", "Pine", "White Shiplap"]
-  },
-  {
-    question: "Select your kitchen finish",
-    options: ["Grey", "White", "Undecided"]
-  },
-  {
-    question: "Select Your Bathroom Fixtures",
-    options: ["Black", "Chrome", "Gold"]
-  },
-  {
-    question: "Select a Composite Shower Tile Panel Style",
-    options: ["Urban Cement", "Marble", "Rustic"]
-  },
-  {
-    question: "How interested are you in purchasing?",
-    options: ["Ready now", "3 months", "6 months", "Just exploring"]
-  },
-  {
-    question: "Do you have land?",
-    options: ["Yes", "No"]
-  },
-  {
-  question: "Please provide contact information so we can send your quote details!",
-  type: "form"
-}
+  { key: "containerModel", question: "Which container model are you interested in?", options: ["Kennedy", "Ezra", "Augustine", "Custom Build"] },
+  { key: "floorPlan", question: "Select your floor plan", options: ["Floorplan A", "Floorplan B"] },
+  { key: "exteriorColor", question: "Select an Exterior Color", options: ["Black", "Grey", "White", "Custom"] },
+  { key: "flooring", question: "Select Flooring", options: ["Wood", "Concrete", "Tile"] },
+  { key: "wallFinish", question: "Select your wall finish", options: ["Drywall", "Pine", "White Shiplap"] },
+  { key: "kitchenFinish", question: "Select your kitchen finish", options: ["Grey", "White", "Undecided"] },
+  { key: "bathroomFixtures", question: "Select Your Bathroom Fixtures", options: ["Black", "Chrome", "Gold"] },
+  { key: "showerPanel", question: "Select a Composite Shower Tile Panel Style", options: ["Urban Cement", "Marble", "Rustic"] },
+  { key: "purchaseInterest", question: "How interested are you in purchasing?", options: ["Ready now", "3 months", "6 months", "Just exploring"] },
+  { key: "hasLand", question: "Do you have land?", options: ["Yes", "No"] },
+  { type: "form" }
 ];
+
 
 let currentStep = 0;
 let answers = {};
@@ -64,8 +34,8 @@ function loadStep() {
     container.innerHTML = `
       <form id="finalForm" class="final-form">
         <div class="form-row">
-          <input name="firstName" placeholder="First name" required />
-          <input name="lastName" placeholder="Last name" required />
+          <input name="firstName" placeholder="First name"  />
+          <input name="lastName" placeholder="Last name"  />
         </div>
 
         <input name="phone" placeholder="Phone number" required />
@@ -78,7 +48,7 @@ function loadStep() {
           <label><input type="checkbox" name="contactPref" value="Text"> Text</label>
         </label>
 
-        <input name="zip" placeholder="Delivery Zip Code" />
+        <input name="zip" placeholder="Delivery Zip Code" required />
         <textarea name="comments" placeholder="Questions / Comments"></textarea>
 
         <label class="checkbox">
@@ -108,13 +78,14 @@ function loadStep() {
     }
 
     card.onclick = () => {
-      answers[steps[currentStep].question] = opt;
+  answers[steps[currentStep].key] = opt;
 
-      setTimeout(() => {
-        currentStep++;
-        loadStep();
-      }, 300);
-    };
+  setTimeout(() => {
+    currentStep++;
+    loadStep();
+  }, 300);
+};
+
 
     grid.appendChild(card);
   });
@@ -144,47 +115,36 @@ function handleSubmit(e) {
   e.preventDefault();
 
   const formData = new FormData(e.target);
-  const payload = {};
 
-  formData.forEach((value, key) => {
-    if (payload[key]) {
-      payload[key] += ", " + value;
-    } else {
-      payload[key] = value;
-    }
-  });
-
-  // Merge popup answers + form answers
-  const finalData = {
+  const payload = {
+    timestamp: new Date().toLocaleString(),
     ...answers,
-    ...payload,
-    timestamp: new Date().toISOString()
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    phone: formData.get("phone"),
+    email: formData.get("email"),
+    contactPreference: formData.getAll("contactPref").join(", "),
+    zipCode: formData.get("zip"),
+    comments: formData.get("comments")
   };
 
-  fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbw04DfolWFtL57xJICc8ldt7UudfMAp6VOcJpg7gutNjWDogkSQj95XUQSypZ3Su3DGGQ/exec", {
     method: "POST",
-    body: JSON.stringify(finalData),
-    headers: { "Content-Type": "application/json" }
-  })
-  .then(() => {// REMOVE the question title
-title.textContent = "";
-
-// SHOW success message only
-container.innerHTML = `
-  <div class="success-message">
-    <h2>Thank you!</h2>
-    <p>Your quote request has been submitted successfully.</p>
-
-    <a href="/" class="back-home-btn">
-      ←  Back to Home
-    </a>
-  </div>
-`;
-
-
-// Optional: hide back button after submit
-if (backBtn) backBtn.style.display = "none";
-  })
-  .catch(() => alert("Submission failed. Please try again."));
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).then(() => {
+    title.textContent = "";
+    container.innerHTML = `
+      <div class="success-message">
+        <h2>Thank you!</h2>
+        <p>Your quote request has been submitted successfully.</p>
+        <a href="/" class="back-home-btn">← Back to Home</a>
+      </div>
+    `;
+    backBtn.style.display = "none";
+  }).catch(() => {
+    alert("Submission failed. Please try again.");
+  });
 }
 
