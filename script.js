@@ -277,22 +277,23 @@ document.querySelectorAll(".scroll-split").forEach(el => {
 
 
 const slideRightObserver = new IntersectionObserver(
-  entries => {
+  (entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // 🔥 Trigger animation
         entry.target.classList.add("active");
       } else {
-        entry.target.classList.remove("active"); // 🔥 allows replay
+        // 🔁 Reset so it can replay
+        entry.target.classList.remove("active");
       }
     });
   },
   {
-    threshold: 0.3,
-    rootMargin: "0px 0px -10% 0px"
+    threshold: 0.15,                 // ✅ mobile friendly
+    rootMargin: "0px 0px -20% 0px"   // ✅ triggers earlier
   }
 );
 
 document.querySelectorAll(".slide-in-right").forEach(el => {
   slideRightObserver.observe(el);
 });
-
