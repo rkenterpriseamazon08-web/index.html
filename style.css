@@ -2697,3 +2697,22 @@ padding-top: 60px;
     background-position: 200% center;
   }
 }
+
+@media (max-width: 768px) {
+  .shimmer-text {
+    font-size: 18px;
+    padding-top: 40px;
+    letter-spacing: 0.5px;
+
+    /* iOS Safari reliability */
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  .scroll-up-animate.active {
+    animation:
+      textSlideReveal 0.9s ease-out forwards,
+      shimmerSweep 2.6s linear infinite;
+  }
+}
+
