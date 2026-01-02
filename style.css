@@ -2725,42 +2725,38 @@ padding-top: 60px;
 
 
 
-
-  /* ================================
-   MOBILE SWIPE ARROW HINT
+/* ================================
+   MOBILE MICRO SWIPE HINT
 ================================ */
 
-.swipe-hint {
+.swipe-micro {
   display: none;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  color: #ffd700;
-  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 1px;
+  color: rgba(255, 215, 0, 0.85);
   opacity: 0;
+  transform: translateY(8px);
 }
 
-/* Arrows */
-.swipe-hint .arrow {
-  font-size: 20px;
-  font-weight: 700;
-  animation: arrowMove 1.6s ease-in-out infinite;
-}
-
-/* Right arrow delayed */
-.swipe-hint .right {
-  animation-delay: 0.8s;
-}
-
-/* Fade-in when visible */
-.scroll-up-animate.active + .swipe-hint {
+/* Fade-in after shimmer appears */
+.scroll-up-animate.active + .swipe-micro {
   opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease;
 }
 
-/* Arrow motion */
-@keyframes arrowMove {
+/* Arrow animation */
+.swipe-micro .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  animation: swipeArrow 1.6s ease-in-out infinite;
+}
+
+/* Arrow movement */
+@keyframes swipeArrow {
   0% {
     transform: translateX(0);
     opacity: 0.4;
@@ -2776,13 +2772,10 @@ padding-top: 60px;
 }
 
 /* ================================
-   MOBILE ENABLE
+   MOBILE ENABLE ONLY
 ================================ */
 @media (max-width: 768px) {
-  .swipe-hint {
-    display: flex;
+  .swipe-micro {
+    display: block;
   }
-}
-
-
 }
