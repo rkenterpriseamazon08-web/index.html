@@ -1,102 +1,194 @@
-* {
-    box-sizing: border-box;
-    font-family: Inter, Arial, sans-serif;
+body.configurator-body {
+  background: radial-gradient(circle at top, #111, #000);
+  font-family: "Poppins", sans-serif;
+}
+
+.configurator-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.configurator-modal {
+  width: min(92%, 700px);
+  background: linear-gradient(180deg, #111, #000);
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 0 0 80px rgba(255,215,0,0.15);
+  border: 1px solid rgba(255,215,0,0.25);
+  text-align: center;
+}
+
+.configurator-modal h2 {
+  color: #ffd700;
+  font-size: clamp(22px, 3vw, 32px);
+  margin-bottom: 28px;
+}
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.option-card {
+  background: #111;
+  border-radius: 16px;
+  padding: 18px;
+  cursor: pointer;
+  border: 1px solid #333;
+  transition: all 0.35s ease;
+}
+
+.option-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(255,215,0,0.2);
+}
+
+.option-card.selected {
+  border-color: #ffd700;
+  box-shadow: 0 0 25px rgba(255,215,0,0.45);
+}
+
+.option-card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.option-card p {
+  margin-top: 12px;
+  color: #ffd700;
+  font-weight: 600;
+}
+
+
+.animate-in {
+  animation: modalIn 0.6s cubic-bezier(.22,.61,.36,1);
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
   }
-  
-  body {
-    margin: 0;
-    background: #0b0b0b;
-    color: #fff;
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-  
-  /* HEADER */
-  .config-header {
-    text-align: center;
-    padding: 40px 20px;
-    border-bottom: 1px solid rgba(255,215,0,0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   MOBILE CONFIGURATOR FIXES
+================================ */
+@media (max-width: 768px) {
+
+  /* Modal sizing */
+  .configurator-modal {
+    width: 94%;
+    max-height: 88vh;
+    padding: 22px 18px 26px;
+    border-radius: 18px;
+    overflow-y: auto;
   }
-  
-  .config-header h1 {
-    color: #ffd700;
-    margin-bottom: 6px;
+
+  /* Hide scroll bar but keep scroll */
+  .configurator-modal::-webkit-scrollbar {
+    display: none;
   }
-  
-  /* LAYOUT */
-  .configurator {
-    display: flex;
-    height: calc(100vh - 140px);
+
+  /* Question heading */
+  .configurator-modal h2 {
+    font-size: 20px;
+    line-height: 1.35;
+    margin-bottom: 18px;
+    letter-spacing: 0.6px;
   }
-  
-  /* TOOLBAR */
-  .toolbar {
-    width: 260px;
-    background: #111;
-    padding: 20px;
-    border-right: 1px solid rgba(255,215,0,0.2);
+
+  /* Options grid → 2 columns */
+  .option-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
-  
-  .toolbar h3 {
-    margin-bottom: 14px;
-    color: #ffd700;
-  }
-  
-  .toolbar button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg,#ffd700,#ffcc33);
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  
-  .toolbar .danger {
-    background: #222;
-    color: #ff6b6b;
-  }
-  
-  /* CANVAS */
-  .canvas-wrapper {
-    flex: 1;
-    padding: 20px;
-    overflow: auto;
-  }
-  
-  #grid {
-    position: relative;
-    width: 2000px;
-    height: 1200px;
-    background:
-      repeating-linear-gradient(
-        0deg,
-        #1c1c1c,
-        #1c1c1c 24px,
-        #111 24px,
-        #111 48px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        #1c1c1c,
-        #1c1c1c 24px,
-        #111 24px,
-        #111 48px
-      );
-    border-radius: 12px;
-  }
-  
-  /* CONTAINER BLOCK */
-  .container-box {
-    position: absolute;
-    background: rgba(255,215,0,0.85);
-    border: 2px solid #000;
-    border-radius: 6px;
-    cursor: move;
+
+  /* Option cards */
+  .option-card {
+    padding: 14px 10px;
+    border-radius: 14px;
+    min-height: 88px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    color: #000;
-    user-select: none;
   }
-  
+
+  .option-card p {
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  /* Selected state (stronger on mobile) */
+  .option-card.selected {
+    transform: scale(1.03);
+    box-shadow: 0 0 18px rgba(255,215,0,0.55);
+  }
+
+  /* Next button */
+  .config-actions {
+    margin-top: 22px;
+  }
+
+  #nextBtn {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ffd700, #b8962e);
+    color: #000;
+    border: none;
+  }
+
+  #nextBtn:disabled {
+    opacity: 0.4;
+  }
+
+  /* Entry animation (lighter on mobile) */
+  .animate-in {
+    animation: modalInMobile 0.5s cubic-bezier(.22,.61,.36,1);
+  }
+
+  @keyframes modalInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
