@@ -38,7 +38,11 @@ const steps = [
   {
     question: "Do you have land?",
     options: ["Yes", "No"]
-  }
+  },
+  {
+  question: "Please provide contact information so we can send your quote details!",
+  type: "form"
+}
 ];
 
 let currentStep = 0;
@@ -53,8 +57,44 @@ function loadStep() {
   container.innerHTML = "";
   title.textContent = steps[currentStep].question;
 
-  if (nextBtn) nextBtn.disabled = true;
+  if (backBtn) backBtn.disabled = currentStep === 0;
 
+  // 👉 FINAL FORM STEP
+  if (steps[currentStep].type === "form") {
+    container.innerHTML = `
+      <form id="finalForm" class="final-form">
+        <div class="form-row">
+          <input name="firstName" placeholder="First name" required />
+          <input name="lastName" placeholder="Last name" required />
+        </div>
+
+        <input name="phone" placeholder="Phone number" required />
+        <input name="email" placeholder="Email address" required />
+
+        <label class="checkbox-group">
+          <span>How do you prefer to be contacted?</span>
+          <label><input type="checkbox" name="contactPref" value="Email"> Email</label>
+          <label><input type="checkbox" name="contactPref" value="Phone"> Phone Call</label>
+          <label><input type="checkbox" name="contactPref" value="Text"> Text</label>
+        </label>
+
+        <input name="zip" placeholder="Delivery Zip Code" />
+        <textarea name="comments" placeholder="Questions / Comments"></textarea>
+
+        <label class="checkbox">
+          <input type="checkbox" required />
+          I agree to the terms of service
+        </label>
+
+        <button type="submit" class="submit-btn">GET QUOTE</button>
+      </form>
+    `;
+
+    document.getElementById("finalForm").onsubmit = handleSubmit;
+    return;
+  }
+
+  // 👉 NORMAL OPTION STEPS
   const grid = document.createElement("div");
   grid.className = "option-grid";
 
@@ -63,35 +103,17 @@ function loadStep() {
     card.className = "option-card";
     card.innerHTML = `<p>${opt}</p>`;
 
-    card.onclick = () => {
-      if (isTransitioning) return;
-      isTransitioning = true;
-
-      // visual selection
-      document.querySelectorAll(".option-card").forEach(c =>
-        c.classList.remove("selected")
-      );
+    if (answers[steps[currentStep].question] === opt) {
       card.classList.add("selected");
+    }
 
-      // save answer
+    card.onclick = () => {
       answers[steps[currentStep].question] = opt;
 
-      // mobile haptic feedback
-      if (navigator.vibrate) navigator.vibrate(12);
-
-      // auto move to next step
       setTimeout(() => {
         currentStep++;
-
-        if (currentStep < steps.length) {
-          loadStep();
-        } else {
-          console.log("Final Answers:", answers);
-          window.location.href = "final-form.html";
-        }
-
-        isTransitioning = false;
-      }, 350); // smooth UX delay
+        loadStep();
+      }, 300);
     };
 
     grid.appendChild(card);
@@ -100,16 +122,69 @@ function loadStep() {
   container.appendChild(grid);
 }
 
-/* Optional fallback Next button */
-if (nextBtn) {
-  nextBtn.onclick = () => {
-    currentStep++;
-    if (currentStep < steps.length) {
+
+
+
+if (backBtn) {
+  backBtn.onclick = () => {
+    if (isTransitioning || currentStep === 0) return;
+
+    isTransitioning = true;
+    currentStep--;
+
+    setTimeout(() => {
       loadStep();
-    } else {
-      window.location.href = "final-form.html";
-    }
+      isTransitioning = false;
+    }, 200);
   };
 }
 
 loadStep();
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const payload = {};
+
+  formData.forEach((value, key) => {
+    if (payload[key]) {
+      payload[key] += ", " + value;
+    } else {
+      payload[key] = value;
+    }
+  });
+
+  // Merge popup answers + form answers
+  const finalData = {
+    ...answers,
+    ...payload,
+    timestamp: new Date().toISOString()
+  };
+
+  fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
+    method: "POST",
+    body: JSON.stringify(finalData),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(() => {// REMOVE the question title
+title.textContent = "";
+
+// SHOW success message only
+container.innerHTML = `
+  <div class="success-message">
+    <h2>Thank you!</h2>
+    <p>Your quote request has been submitted successfully.</p>
+
+    <a href="/" class="back-home-btn">
+      ←  Back to Home
+    </a>
+  </div>
+`;
+
+
+// Optional: hide back button after submit
+if (backBtn) backBtn.style.display = "none";
+  })
+  .catch(() => alert("Submission failed. Please try again."));
+}
+
