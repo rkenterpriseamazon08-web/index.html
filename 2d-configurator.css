@@ -406,3 +406,24 @@ body.configurator-body {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
   }
 }
+
+
+
+/* Mobile floating back button */
+@media (max-width: 768px) {
+  .mobile-back {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+    background: #000;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+    z-index: 9999;
+    width: auto;
+  }
+}
+
+
