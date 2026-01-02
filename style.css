@@ -2651,7 +2651,7 @@ height: 100svh;
 /* BASE TEXT */
 .shimmer-text {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 900;
   text-align: center;
   letter-spacing: 0.5px;
   color: #ffd700;
@@ -2698,21 +2698,60 @@ padding-top: 60px;
   }
 }
 
-@media (max-width: 768px) {
-  .shimmer-text {
-    font-size: 18px;
-    padding-top: 40px;
-    letter-spacing: 0.5px;
+/* ================================
+   MOBILE SWIPE ARROW HINT
+================================ */
 
-    /* iOS Safari reliability */
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+.swipe-hint {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  color: #ffd700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0;
+}
+
+/* Arrows */
+.swipe-hint .arrow {
+  font-size: 20px;
+  font-weight: 700;
+  animation: arrowMove 1.6s ease-in-out infinite;
+}
+
+/* Right arrow delayed */
+.swipe-hint .right {
+  animation-delay: 0.8s;
+}
+
+/* Fade-in when visible */
+.scroll-up-animate.active + .swipe-hint {
+  opacity: 1;
+}
+
+/* Arrow motion */
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0.4;
   }
-
-  .scroll-up-animate.active {
-    animation:
-      textSlideReveal 0.9s ease-out forwards,
-      shimmerSweep 2.6s linear infinite;
+  50% {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.4;
   }
 }
 
+/* ================================
+   MOBILE ENABLE
+================================ */
+@media (max-width: 768px) {
+  .swipe-hint {
+    display: flex;
+  }
+}
