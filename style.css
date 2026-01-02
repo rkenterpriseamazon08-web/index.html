@@ -2775,3 +2775,12 @@ padding-top: 60px;
     gap: 14px;
   }
 }
+
+
+@media (max-width: 768px) {
+  .split-text-container {
+    flex-direction: row;     /* ✅ keep in one line */
+    gap: 14px;
+    flex-wrap: nowrap;
+  }
+}
