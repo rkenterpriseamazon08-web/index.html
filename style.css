@@ -2769,12 +2769,6 @@ padding-top: 60px;
   text-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
 }
 
-@media (max-width: 768px) {
-  .split-text-container {
-    flex-direction: column;
-    gap: 14px;
-  }
-}
 
 
 @media (max-width: 768px) {
@@ -2783,4 +2777,16 @@ padding-top: 60px;
     gap: 14px;
     flex-wrap: nowrap;
   }
+
+   .text-part.left {
+    transform: translateX(-30px);
+  }
+
+  .text-part.right {
+    transform: translateX(30px);
+  }
+  .scroll-split.active .text-part {
+    text-shadow: 0 0 14px rgba(255, 215, 0, 0.5);
+}
+ 
 }
