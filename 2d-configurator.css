@@ -440,3 +440,50 @@ body.configurator-body {
   }
 }
 
+
+
+
+
+
+/* ================================
+   FORM TEXT COLOR FIX (WHITE)
+================================ */
+
+/* Input & textarea text */
+.config-form input,
+.config-form textarea {
+  color: #ffffff;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,215,0,0.35);
+}
+
+/* Placeholder text */
+.config-form input::placeholder,
+.config-form textarea::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+/* Labels & helper text */
+.config-form label,
+.config-form .form-label,
+.config-form p,
+.config-form span {
+  color: #ffffff;
+}
+
+/* Checkbox / radio text */
+.config-form .option-label {
+  color: #ffffff;
+}
+
+/* Focus state */
+.config-form input:focus,
+.config-form textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 2px rgba(255,215,0,0.25);
+}
+
+
+
+
