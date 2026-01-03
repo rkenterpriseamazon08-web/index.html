@@ -297,3 +297,28 @@ const slideRightObserver = new IntersectionObserver(
 document.querySelectorAll(".slide-in-right").forEach(el => {
   slideRightObserver.observe(el);
 });
+
+
+
+const slideRightObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active"); // 🔥 allows replay
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+    rootMargin: "0px 0px -10% 0px"
+  }
+);
+
+document.querySelectorAll(".slide-in-right").forEach(el => {
+  slideRightObserver.observe(el);
+});
+
+
+
