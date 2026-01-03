@@ -193,4 +193,3 @@ function handleSubmit(e) {
   `;
   backBtn.style.display = "none";
 }
-
