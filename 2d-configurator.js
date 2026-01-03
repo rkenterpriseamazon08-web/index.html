@@ -44,7 +44,7 @@ function loadStep() {
   // FINAL FORM STEP
   if (steps[currentStep].type === "form") {
     container.innerHTML = `
-      <form id="finalForm" class="final-form">
+      <form id="finalForm" class="final-form config-form">
         <div class="form-row">
           <input name="firstName" placeholder="First name" required />
           <input name="lastName" placeholder="Last name" required />
@@ -193,3 +193,4 @@ function handleSubmit(e) {
   `;
   backBtn.style.display = "none";
 }
+
