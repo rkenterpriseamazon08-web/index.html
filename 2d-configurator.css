@@ -34,6 +34,17 @@ body.configurator-body {
   gap: 20px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 .option-card {
   background: #111;
   border-radius: 16px;
@@ -41,6 +52,9 @@ body.configurator-body {
   cursor: pointer;
   border: 1px solid #333;
   transition: all 0.35s ease;
+  color: #ffd700;        /* GOLD TEXT */
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .option-card:hover {
@@ -425,5 +439,4 @@ body.configurator-body {
     width: auto;
   }
 }
-
 
