@@ -3567,3 +3567,30 @@ padding-top: 60px;
   }
 }
 
+
+
+
+
+
+
+
+/* ================================
+   DESKTOP MODAL FIX (NO CUT OFF)
+================================ */
+
+@media (min-width: 769px) {
+  .modal {
+    display: flex;
+    align-items: center;   /* vertical centering */
+    justify-content: center;
+  }
+
+  .modal-content {
+    width: 420px;
+    max-height: 85vh;      /* 🔑 limit height */
+    overflow-y: auto;     /* 🔑 allow scroll */
+
+    margin: 0;            /* remove top push */
+    padding: 28px 26px;
+  }
+}
