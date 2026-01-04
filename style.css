@@ -2868,14 +2868,6 @@ padding-top: 60px;
    FIX PROCESS VIDEO CARD
 ================================ */
 
-.process-card {
-  position: relative;
-  min-height: 260px;            /* 🔑 keeps all cards equal */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
 /* Video wrapper */
 .video-card .card-video {
