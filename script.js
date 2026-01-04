@@ -106,6 +106,22 @@ document.getElementById("popupForm").addEventListener("submit", function (e) {
   updateBedroomDropdown();
   containerSize.addEventListener("change", updateBedroomDropdown);
 });
+
+const modal = document.getElementById("priceModal");
+const closeBtn = document.querySelector(".close-btn");
+
+// Close on X click
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Close when clicking outside modal
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
 /* ===== MOBILE MENU AUTO-CLOSE FIX ===== */
 
 const menuToggle = document.getElementById("menuToggle");
