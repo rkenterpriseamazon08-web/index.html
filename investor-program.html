@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investor Program | R.K. Enterprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Partner with R.K. Enterprise's Investor Program and grow with India's expanding container living & working industry.">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* ===== INVESTOR PROGRAM — MATCHES POLICY PAGE DESIGN SYSTEM ===== */
+
+    /* ---- HERO ---- */
+    .policy-hero-dark {
+      padding: 150px 20px 90px;
+      text-align: center;
+      background: radial-gradient(circle at top center, #111100 0%, #080800 50%, #000 100%);
+      border-bottom: 1px solid rgba(245, 197, 66, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .policy-hero-dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255, 215, 0, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .policy-page-icon {
+      font-size: 50px;
+      color: #f5c542;
+      margin-bottom: 22px;
+      display: block;
+      animation: iconPulse 3s ease-in-out infinite;
+    }
+    @keyframes iconPulse {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4)); }
+      50%       { filter: drop-shadow(0 0 22px rgba(255, 215, 0, 0.95)); }
+    }
+    .policy-hero-dark h1 {
+      color: #ffd700;
+      font-size: clamp(28px, 5vw, 48px);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 28px rgba(255, 215, 0, 0.45);
+      margin-bottom: 14px;
+    }
+    .policy-hero-dark p.policy-lead {
+      color: #bbb;
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 15.5px;
+      line-height: 1.8;
+    }
+    .policy-breadcrumb {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+    .policy-breadcrumb a {
+      color: #f5c542;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+    .policy-breadcrumb a:hover { color: #fff; }
+
+    /* ---- CONTENT ---- */
+    .policy-content-dark {
+      background: #000;
+      padding: 80px 20px 100px;
+    }
+    .policy-container-dark {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .policy-intro-block {
+      text-align: center;
+      color: #999;
+      font-size: 15px;
+      line-height: 1.85;
+      padding: 28px 32px 36px;
+      border-bottom: 1px solid rgba(245, 197, 66, 0.15);
+      margin-bottom: 8px;
+    }
+    .policy-intro-block strong { color: #f5c542; }
+
+    /* ---- STATS ---- */
+    .investor-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 8px;
+    }
+    .investor-stat {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(245, 197, 66, 0.32);
+      border-radius: 14px;
+      padding: 26px 16px;
+    }
+    .investor-stat .num {
+      color: #ffd700;
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 800;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .investor-stat .label {
+      color: #999;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    /* ---- CARDS ---- */
+    .policy-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(245, 197, 66, 0.32);
+      border-radius: 14px;
+      padding: 28px 32px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .policy-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(to bottom, #ffd700, transparent);
+      border-radius: 14px 0 0 14px;
+    }
+    .policy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(255, 215, 0, 0.15);
+      border-color: rgba(245, 197, 66, 0.65);
+    }
+    .policy-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .policy-card-header i {
+      font-size: 20px;
+      color: #f5c542;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(245, 197, 66, 0.09);
+      border-radius: 10px;
+      border: 1px solid rgba(245, 197, 66, 0.22);
+      flex-shrink: 0;
+    }
+    .policy-card h2 {
+      color: #ffd700;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+    .policy-card p,
+    .policy-card li {
+      color: #bbb;
+      font-size: 14.5px;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .policy-card ul { padding-left: 20px; margin: 0; }
+    .policy-card li { margin-bottom: 6px; }
+    .policy-card li::marker { color: #f5c542; }
+
+    /* ---- SECTION LABEL ---- */
+    .policy-section-label {
+      color: #ffd700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 20px 0 -6px;
+    }
+
+    /* ---- WHY INVEST GRID ---- */
+    .investor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    /* ---- PROCESS STEPS ---- */
+    .investor-steps {
+      display: grid;
+      gap: 16px;
+    }
+    .investor-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(245, 197, 66, 0.32);
+      border-radius: 14px;
+      padding: 22px 28px;
+    }
+    .investor-step .step-num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid #f5c542;
+      color: #ffd700;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .investor-step h3 {
+      color: #ffd700;
+      font-size: 15.5px;
+      margin: 0 0 6px;
+      letter-spacing: 0.3px;
+    }
+    .investor-step p {
+      color: #bbb;
+      font-size: 14.5px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* Contact / apply card */
+    .policy-contact-card {
+      text-align: center;
+      padding: 40px 30px;
+      border-radius: 16px;
+      border: 1px solid #f5c542;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0,0,0,0.6) 100%);
+    }
+    .policy-contact-card i {
+      font-size: 32px;
+      color: #ffd700;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .policy-contact-card h2 {
+      color: #ffd700;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .policy-contact-card p {
+      color: #ccc;
+      font-size: 14.5px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .policy-contact-card a.cta-btn {
+      display: inline-block;
+      background: #ffd700;
+      color: #000;
+      font-weight: 700;
+      padding: 13px 34px;
+      border-radius: 30px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      margin: 6px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .policy-contact-card a.cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.35);
+    }
+    .policy-contact-card a.cta-btn.outline {
+      background: transparent;
+      color: #ffd700;
+      border: 1px solid #ffd700;
+    }
+
+    /* ---- DISCLAIMER ---- */
+    .investor-disclaimer {
+      color: #666;
+      font-size: 12.5px;
+      line-height: 1.8;
+      text-align: center;
+      padding: 10px 20px 0;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .policy-hero-dark   { padding: 120px 16px 70px; }
+      .policy-content-dark{ padding: 60px 14px 80px; }
+      .policy-card        { padding: 22px 18px; }
+      .policy-intro-block { padding: 20px 16px 28px; }
+      .policy-container-dark { gap: 16px; }
+      .investor-grid       { grid-template-columns: 1fr; }
+      .investor-stats       { grid-template-columns: 1fr; }
+      .investor-step        { flex-direction: column; padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <a href="index.html" class="logo">
+    <img src="assets/logo22.png" alt="R.K. ENTERPRISE Logo" />
+  </a>
+  <div class="nav-wrapper">
+    <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    <nav class="nav" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#calculator">Price Calculator</a>
+      <a href="index.html#process">Process</a>
+      <a href="contactus.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="policy-hero-dark">
+  <i class="fas fa-handshake policy-page-icon"></i>
+  <h1>Investor Program</h1>
+  <p class="policy-lead">
+    Partner with R.K. Enterprise and be part of India's fast-growing
+    container living &amp; working industry — built on transparent
+    manufacturing, real demand, and scalable growth.
+  </p>
+  <p class="policy-breadcrumb">
+    <a href="index.html">Home</a> &nbsp;/&nbsp; Investor Program
+  </p>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<section class="policy-content-dark">
+  <div class="policy-container-dark">
+
+    <!-- Intro -->
+    <div class="policy-intro-block">
+      The <strong>R.K. Enterprise Investor Program</strong> invites
+      individuals, dealers, and business partners to invest in and grow
+      alongside our container house, porta cabin, and custom container
+      manufacturing business. We offer structured partnership models
+      backed by real production capacity and a growing customer base
+      across India.
+    </div>
+
+    <!-- Stats -->
+    <div class="investor-stats">
+      <div class="investor-stat">
+        <span class="num">2</span>
+        <span class="label">Factory Locations</span>
+      </div>
+      <div class="investor-stat">
+        <span class="num">9+</span>
+        <span class="label">Product Lines</span>
+      </div>
+      <div class="investor-stat">
+        <span class="num">1000 KM</span>
+        <span class="label">Service Radius</span>
+      </div>
+    </div>
+
+    <p class="policy-section-label">Why Invest With Us</p>
+
+    <div class="investor-grid">
+      <div class="policy-card">
+        <div class="policy-card-header">
+          <i class="fas fa-chart-line"></i>
+          <h2>Growing Market</h2>
+        </div>
+        <p>
+          Rising demand for portable offices, site cabins, security cabins,
+          and container homes across residential, commercial, and
+          industrial sectors in India.
+        </p>
+      </div>
+
+      <div class="policy-card">
+        <div class="policy-card-header">
+          <i class="fas fa-industry"></i>
+          <h2>Established Manufacturing</h2>
+        </div>
+        <p>
+          Active factories in Bardhaman (West Bengal) and Faridabad (Delhi)
+          with proven production, quality control, and delivery capability.
+        </p>
+      </div>
+
+      <div class="policy-card">
+        <div class="policy-card-header">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <h2>Transparent Terms</h2>
+        </div>
+        <p>
+          Clear, documented investment and partnership terms with no hidden
+          clauses — every arrangement is discussed and confirmed upfront.
+        </p>
+      </div>
+
+      <div class="policy-card">
+        <div class="policy-card-header">
+          <i class="fas fa-people-group"></i>
+          <h2>Dedicated Support</h2>
+        </div>
+        <p>
+          Direct access to our management team for regular updates,
+          reporting, and guidance throughout the partnership.
+        </p>
+      </div>
+    </div>
+
+    <p class="policy-section-label">How the Program Works</p>
+
+    <div class="investor-steps">
+      <div class="investor-step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Initial Discussion</h3>
+          <p>Share your interest and investment range with our team via call, email, or the form below.</p>
+        </div>
+      </div>
+
+      <div class="investor-step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Business Overview</h3>
+          <p>We walk you through our manufacturing operations, current order pipeline, and growth plans.</p>
+        </div>
+      </div>
+
+      <div class="investor-step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Proposal &amp; Terms</h3>
+          <p>A partnership structure and terms are prepared and reviewed together, tailored to your investment.</p>
+        </div>
+      </div>
+
+      <div class="investor-step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Agreement &amp; Onboarding</h3>
+          <p>Once terms are finalized and documented, you're onboarded as a formal investment partner.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Who can apply -->
+    <div class="policy-card">
+      <div class="policy-card-header">
+        <i class="fas fa-user-check"></i>
+        <h2>Who Can Apply</h2>
+      </div>
+      <ul>
+        <li>Individual investors looking for a manufacturing partnership</li>
+        <li>Dealers and distributors seeking regional partnership opportunities</li>
+        <li>Businesses interested in bulk supply or franchise-style tie-ups</li>
+        <li>NRIs and institutional investors exploring the container industry</li>
+      </ul>
+    </div>
+
+    <!-- Contact / Apply -->
+    <div class="policy-contact-card">
+      <i class="fas fa-envelope-open-text"></i>
+      <h2>Ready to Invest?</h2>
+      <p>
+        Get in touch with our team to discuss investment opportunities
+        and partnership terms.
+      </p>
+      <a href="tel:+916291465527" class="cta-btn">📞 Call Us</a>
+      <a href="mailto:rkenterpriseamazon08@gmail.com" class="cta-btn outline">✉️ Email Us</a>
+    </div>
+
+    <p class="investor-disclaimer">
+      All investment discussions are subject to mutual due diligence and
+      signed agreements. R.K. Enterprise does not guarantee fixed returns —
+      partnership terms are negotiated individually for each investor.
+    </p>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="R.K. Enterprise Logo">
+      <h3>R.K. ENTERPRISE</h3>
+      <p>Container Living &amp; Working, Redefined</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="aboutus.html">About Us</a>
+      <a href="customers.html">Our Customers</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#calculator">Price Calculator</a>
+      <a href="contactus.html">Contact Us</a>
+      <a href="investor-program.html">Investor Program</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Policies</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="payment-terms.html">Payment Terms</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+    </div>
+
+    <div class="footer-social">
+      <p class="find-us-text">Find us here</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    &copy; 2024 R.K. Enterprise. All Rights Reserved.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

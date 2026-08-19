@@ -138,8 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  updateBedroomDropdown();
-  containerSize.addEventListener("change", updateBedroomDropdown);
+  if (containerSize && bedrooms) {
+    updateBedroomDropdown();
+    containerSize.addEventListener("change", updateBedroomDropdown);
+  }
 
 });
 
